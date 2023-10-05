@@ -2,14 +2,11 @@ import os
 os.system('cls')
 
 # soal 1
-
-
 def fibonacci(num):
     if (num <= 1):
         return num
 
     return fibonacci(num - 1) + fibonacci(num - 2)
-
 
 print(f'5 : {fibonacci(5)}')
 print(f'7 : {fibonacci(7)}')
@@ -19,8 +16,6 @@ print(f'4 : {fibonacci(4)}')
 
 # soal 2
 print("\n")
-
-
 def is_palindrome_list(nums):
     if len(nums) <= 1:
         return True
@@ -28,44 +23,35 @@ def is_palindrome_list(nums):
         return False
     return is_palindrome_list(nums[1:-1])
 
-
-print(is_palindrome_list([1, 2, 3, 4, 4, 3, 2, 1]))
+print(is_palindrome_list([1,2,3,4,4,3,2,1]))
 
 # soal 3
 print("\n")
-
-
 class DuaDimensi:
-    x = 0
-    y = 0
+  x = 0
+  y = 0
 
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+  def __init__(self,x,y):
+    self.x = x
+    self.y = y
+  def geserHorizontal(self,dx):
+    self.x += dx
+  def geserVertikal(self,dy):
+    self.y += dy
+  def hitungJarak(self, titikLain):
+    jarak_x = titikLain.getX() - self.getX()
+    jarak_y = titikLain.getY() - self.getY()
+    jarak = (jarak_x**2 + jarak_y**2)**0.5
+    return jarak 
+  def getX(self):
+    return self.x
+  def getY(self):
+    return self.y
 
-    def geserHorizontal(self, dx):
-        self.x += dx
-
-    def geserVertikal(self, dy):
-        self.y += dy
-
-    def hitungJarak(self, titikLain):
-        jarak_x = titikLain.getX() - self.getX()
-        jarak_y = titikLain.getY() - self.getY()
-        jarak = (jarak_x**2 + jarak_y**2)**0.5
-        return jarak
-
-    def getX(self):
-        return self.x
-
-    def getY(self):
-        return self.y
-
-
-# soal 4
+# soal 4  
 print("\n")
-t1 = DuaDimensi(2, 3)
-t2 = DuaDimensi(4, 5)
+t1 = DuaDimensi(2,3)  
+t2 = DuaDimensi(4,5) 
 
 t1.geserHorizontal(-3)
 t1.geserVertikal(-7)
@@ -79,13 +65,10 @@ print(t1.hitungJarak(t2))
 
 # soal 5
 print("\n")
-
-
 class Node:
     def __init__(self, value):
         self.value = value
         self.ref = None
-
 
 class LinkedListInteger():
     def __init__(self):
@@ -178,7 +161,7 @@ class LinkedListInteger():
             length += 1
             n = n.ref
 
-        return length
+        return print(length)
 
     def contains(self, value):
         'Mengecek apakah list berisi value'
@@ -270,7 +253,7 @@ class LinkedListInteger():
             current = next_node
         self.start_node = prev
 
-    def traverse_list(self, prefixMessage=None):
+    def traverse_list(self):
         'Mencetak seluruh isi list'
         data = '['
 
@@ -278,7 +261,7 @@ class LinkedListInteger():
 
         if (currentNode is None):
             data += ']'
-            return print(f'{f"{prefixMessage} : " if prefixMessage else ""}{data}')
+            return print(data)
 
         while currentNode is not None:
             if currentNode.ref is not None:
@@ -289,31 +272,35 @@ class LinkedListInteger():
             currentNode = currentNode.ref
 
         data += ']'
-        print(f'{f"{prefixMessage} : " if prefixMessage else ""}{data}')
 
+        print(data)
 
-linkedListInteger1 = LinkedListInteger()
-linkedListInteger1.traverse_list('LinkedList1')
+linkedListInteger = LinkedListInteger()
+linkedListInteger.traverse_list()
 
-linkedListInteger1.insert_at_start(3)
-linkedListInteger1.insert_at_end(5)
-linkedListInteger1.insert_at_end(10)
-linkedListInteger1.traverse_list('LinkedList1 setelah ditambah dengan 3, 5, dan 10')
+linkedListInteger.insert_at_start(3)
+linkedListInteger.insert_at_end(5)
+linkedListInteger.insert_at_end(10)
+linkedListInteger.traverse_list()
 
-print('Jumlah (sum) seluruh element di LinkedList1 :', linkedListInteger1.sum())
+#2
+print(linkedListInteger.sum())
 
 linkedListInteger2 = LinkedListInteger()
 linkedListInteger2.insert_at_end(7)
 linkedListInteger2.insert_at_end(6)
-linkedListInteger2.traverse_list('LinkedList2')
 
-linkedListInteger1.insert_all(linkedListInteger2)
-linkedListInteger1.traverse_list('LinkedList1 setelah digabungkan dengan linkedList2')
+#3
+linkedListInteger.insert_all(linkedListInteger2)
+linkedListInteger.traverse_list()
 
-linkedListInteger1.insert_sorted(11)
-linkedListInteger1.traverse_list('LinkedList1 setelah di insert dan di sort')
+#4
+linkedListInteger.insert_sorted(11)
+linkedListInteger.traverse_list()
 
-print('Jumlah anggota linkedList1 :', linkedListInteger1.length())
+# 1
+linkedListInteger.length()
 
-linkedListInteger1.reverse()
-linkedListInteger1.traverse_list('LinkedList1 setelah di reverse (dibalik)')
+#5
+linkedListInteger.reverse()
+linkedListInteger.traverse_list()
