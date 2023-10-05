@@ -10,7 +10,7 @@ class Titik2D:
         self.y += dy
 
     def hitungJarak(self, titik_lain):
-        return Titik2D((self.x - titik_lain.x).__abs__(), (self.y - titik_lain.y).__abs__())
+        return ((self.x - titik_lain.x).__abs__()**2) + ((self.y - titik_lain.y).__abs__()**2)**0.5
         
     def getX(self):
         return self.x
@@ -32,4 +32,4 @@ t2.geserVertikal(9)
 print(f't2: {t2.x}, {t2.y}')
 
 jarak = t1.hitungJarak(t2)
-print(f'jarak: {jarak.x}, {jarak.y}')
+print(f'jarak: {jarak}')
